@@ -13,7 +13,7 @@ function preflight_checks {
         exit -1
     fi
 
-    if [ "$(sudo systemctl list-units --full -all -t service --no-legend | grep -F 'klipper.service')" ]; then
+    if [ "$(sudo systemctl list-units --full -all -t service --no-legend | grep -F 'klipper-1.service')" ]; then
         printf "[PRE-CHECK] Klipper service found! Continuing...\n\n"
     else
         echo "[ERROR] Klipper service not found, please install Klipper first!"
@@ -49,7 +49,7 @@ function link_extension {
 
 function restart_klipper {
     echo "[POST-INSTALL] Restarting Klipper..."
-    sudo systemctl restart klipper
+    sudo systemctl restart klipper-1.service
 }
 
 
